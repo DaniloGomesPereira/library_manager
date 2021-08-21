@@ -9,7 +9,7 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    author = Author.new(author_params(params))
+    author = Author.new(author_params)
     if author.save
       render json: author, status: :created
     else
@@ -19,7 +19,7 @@ class AuthorsController < ApplicationController
 
   def update
     author = Author.find(params[:id])
-    if author.update(author_params(params))
+    if author.update(author_params)
       render json: author, status: :ok
     else
       render json: author.errors.full_messages, status: :unprocessable_entity
@@ -37,7 +37,7 @@ class AuthorsController < ApplicationController
 
   private
 
-  def author_params(params)
+  def author_params
     params.require('author').permit(:name, :birthday, :nationality)
   end
 end
