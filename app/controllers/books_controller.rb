@@ -32,14 +32,15 @@ class BooksController < ApplicationController
       render json: 'Record removed successfully', status: :ok
     else
       render json: 'An error has occurred while trying to remove the data'
+    end
   end
-end
 
-private
+  private
   def book_params
     params.
-      require('book').
-      permit(:title, :published_in, :genre, :publisher_id,
-             author_books_attributes: [:author_id, :main_author])
+    require('book').
+    permit(:title, :published_in, :publisher_id,
+     author_books_attributes: [:author_id, :main_author],
+     genre_books_attributes: [:genre_id])
   end
 end
