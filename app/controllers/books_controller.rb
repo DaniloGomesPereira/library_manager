@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: %i[update destroy show]
+
   def index
     render json: Book.all
   end
 
   def show
-    book = Book.find(params[:id])
-    render json: book, status: :ok
+    render json: @book, status: :ok
   end
 
   def create
@@ -18,17 +19,15 @@ class BooksController < ApplicationController
   end
 
   def update
-    book = Book.find(params[:id])
-    if book.update(book_params)
-      render json: book, status: :ok
+    if @book.update(book_params)
+      render json: @book, status: :ok
     else
-      render json: book.errors.full_messages, status: :unprocessable_entity
+      render json: @book.errors.full_messages, status: :unprocessable_entity
     end
   end
 
   def destroy
-    book = Book.find(params[:id])
-    if book.delete
+    if @book.delete
       render json: 'Record removed successfully', status: :ok
     else
       render json: 'An error has occurred while trying to remove the data'
@@ -36,11 +35,16 @@ class BooksController < ApplicationController
   end
 
   private
+  
   def book_params
     params.
     require('book').
     permit(:title, :published_in, :publisher_id,
-     author_books_attributes: [:author_id, :main_author],
-     genre_books_attributes: [:genre_id])
+      author_books_attributes: %i[author_id main_author],
+      genre_books_attributes: %i[genre_id])
+  end
+
+  def set_book
+    @book = Book.find(params[:id])
   end
 end
