@@ -8,4 +8,6 @@ class Book < ApplicationRecord
 
   accepts_nested_attributes_for :author_books
   accepts_nested_attributes_for :genre_books
+
+  validates :title, :publisher_id, presence: true
 end

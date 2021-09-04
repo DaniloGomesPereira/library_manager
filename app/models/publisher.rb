@@ -1,6 +1,5 @@
 class Publisher < ApplicationRecord
   has_many :books
 
-  validates :country, presence: true
-  validates :fundation, presence: true
+  validates :name, :country, :fundation, presence: true
 end

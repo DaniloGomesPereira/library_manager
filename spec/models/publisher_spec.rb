@@ -5,7 +5,7 @@ RSpec.describe Publisher do
         context "When is valid" do
             let(:publisher) {build(:publisher)}
 
-            it "then ok" do
+            it 'then ok' do
                 expect(publisher).to be_valid
             end
         end
