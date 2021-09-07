@@ -1,11 +1,12 @@
 class GenresController < ApplicationController
+	before_action :set_genre, only: %i[update destroy show]
+
 	def index
 		render json: Genre.all
 	end
 
 	def show
-		genre = Genre.find(params[:id])
-		render json: genre, status: :ok
+	  render json: @genre, status: :ok
 	end
 
 	def create
@@ -18,17 +19,15 @@ class GenresController < ApplicationController
 	end
 
 	def update
-		genre = Genre.find(params[:id])
-		if genre.update(genre_params)
-			render json: genre, status: :ok
+		if @genre.update(genre_params)
+			render json: @genre, status: :ok
 		else
-			render json: genre.errors.full_messages, status: :unprocessable_entity
+			render json: @genre.errors.full_messages, status: :unprocessable_entity
 		end
 	end
 
 	def destroy
-		genre = Genre.find(params[:id])
-		if genre.delete
+		if @genre.delete
 			render json: 'Record removed successfully', status: :ok
 		else
 			render json: 'An error has occurred while trying to remove the data'
@@ -39,5 +38,9 @@ class GenresController < ApplicationController
 
 	def genre_params
 		params.require('genre').permit(:literary_genres)
+	end
+
+	def set_genre
+		@genre = Genre.find(params[:id])
 	end
 end

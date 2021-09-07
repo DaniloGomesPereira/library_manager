@@ -40,7 +40,7 @@ class BooksController < ApplicationController
     params.
     require('book').
     permit(:title, :published_in, :publisher_id,
-      author_books_attributes: %i[author_id main_author],
+      author_books_attributes: %i[author_id main_author], 
       genre_books_attributes: %i[genre_id])
   end
 
