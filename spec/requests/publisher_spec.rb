@@ -59,16 +59,42 @@ RSpec.describe 'Publishers', type: :request do
             end
         end
 
-        describe '#update'
-            subject(:put_publishers) { put "/publishers/#{publisher.id}", params: params.as_json }
-            let!(:publisher) { create(:publisher) }
+    describe '#update'
+        subject(:put_publishers) { put "/publishers/#{publisher.id}", params: params.as_json }
+        let!(:publisher) { create(:publisher) }
 
-            context 'Whit valid arguments' do
-                let(:params) { { publisher: { name: "Editora Divertida" } } }
+        context 'Whit valid arguments' do
+            let(:params) { { publisher: { name: "Editora Divertida" } } }
 
-                it "Then update publisher's name" do
-                    expect { put_publishers }.to change { publisher.reload.name }
-                end
+            it "Then update publisher's name" do
+                expect { put_publishers }.to change { publisher.reload.name }
+            end
+        end
+
+         context 'With invalid arguments' do
+            let(:params) { { publisher: { name: "" } } }
+
+            it "Then should not update publisher's name" do
+                 expect { put_publishers }.not_to change { publisher.reload.name }
             end
         end
     end
+
+    describe '#destroy' do
+        subject(:delete_publishers) { delete "/publishers/#{publisher_id}" }
+        
+        let!(:publisher_id) { create(:publisher).id }
+
+        context 'With valid arguments' do
+            it { expect { delete_publishers }.to change(Publisher, :count).by(-1) }
+        end
+
+        context ' With invalid arguments' do
+          let!(:publisher_id) { -1 }
+
+            it "Then should not destroy the publisher" do
+                expect { delete_publishers }.to raise_error(ActiveRecord::RecordNotFound)
+            end
+        end
+    end
+end

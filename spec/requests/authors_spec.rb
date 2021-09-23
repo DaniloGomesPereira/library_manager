@@ -91,7 +91,7 @@ RSpec.describe 'Authors', type: :request do
             it { expect { delete_authors }.to change(Author, :count).by(-1) }
         end
 
-        context 'whit invalid arguments' do
+        context 'with invalid arguments' do
           let!(:author_id) { -1 }
 
             it 'then should not destroy the author' do
