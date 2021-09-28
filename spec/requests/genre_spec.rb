@@ -44,4 +44,36 @@ RSpec.describe 'Genre', type: :request do
             end
         end
     end
+
+    describe '#update'do
+        subject(:put_genres) { put "/genres/#{genre.id}", params: params.as_json }
+
+        let!(:genre) { create(:genre) }
+
+        context 'With valid arguments' do
+            let(:params) { { genre: { literary_genres: "Terror" } } }
+
+            it 'Then updates literary genres' do
+                expect { put_genres }.to change { genre.reload.literary_genres }
+            end
+        end
+
+        context 'With invalid arguments' do
+            let(:params) { { genre: { literary_genres: "" } } }
+
+            it 'Then should not update literary_genres' do
+                expect { put_genres }.not_to change { genre.reload.literary_genres }
+            end
+        end
+    end
+
+    describe '#destroy' do
+        subject(:delete_genres) { delete "/genres/#{genre_id}" }
+
+        let!(:genre_id) { create(:genre).id }
+
+        context 'With valid arguments' do
+            it { expect {delete_genres }.to change(Genre, :count).by(-1) }
+        end
+    end
 end
