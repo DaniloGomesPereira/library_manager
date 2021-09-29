@@ -75,5 +75,13 @@ RSpec.describe 'Genre', type: :request do
         context 'With valid arguments' do
             it { expect {delete_genres }.to change(Genre, :count).by(-1) }
         end
+
+        context 'With invalid arguments' do
+            let!(:genre_id) { -1 }
+
+            it 'Then should not destroy the genre' do
+                expect { delete_genres }.to raise_error(ActiveRecord::RecordNotFound)
+            end          
+        end
     end
 end
