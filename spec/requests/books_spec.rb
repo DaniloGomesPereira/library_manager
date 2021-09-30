@@ -27,15 +27,22 @@ RSpec.describe 'Books', type: :request do
 
     describe '#create' do
         subject(:post_books) { post '/books', params: params.as_json }
-
+        let(:publisher) { create(:publisher) }
+        let(:author) { create(:author) }
+        let(:genre) { create(:genre) }
         let(:params) do
             {
                 book: {
                     title: 'Diegão nas terras da Rainha', 
-                    published_in: '2021-09-26', 
-                    publisher_id: '1',
-                    author_id: '1',
-                    genre_id: '1'
+                    published_in: '2021-09-26',
+                    publisher_id: 'publisher.id',
+                    author_books_attributes: [
+                       {
+                    author_id: 'author.id',
+                    main_author: true,
+                         }
+                        ],
+                    genre_id: 'genre.id'
                 }
             }
         end
@@ -44,6 +51,38 @@ RSpec.describe 'Books', type: :request do
             it 'Then save the book' do
                 expect { post_books }.to change(Book, :count).by(1)
             end
+        end
+        
+    end
+    describe '#update' do
+        subject(:put_books) { put "/books/#{book.id}", params: params.as_json }
+
+        let!(:book) { create(:book)}
+
+        context "With valid arguments" do
+            let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia'}} }
+
+            it "Then updates book's title" do
+                expect { put_books }.to change{ book.reload.title }
+            end
+        end
+
+        context "Whit invalid arguments" do
+            let(:params) { { book: { title: ''} } }
+
+            it "Then should not updates book's title" do
+                expect { put_books }.not_to change{ book.reload.title }
+            end
+        end
+    end
+
+    describe '#destroy' do
+        subject(:delete_books) { delete "/books/#{book_id}" }
+
+        let!(:book_id) { create(:book).id }
+
+        context "With valid argumets" do
+            it { expect { delete_books }.to change(Book, :count).by(-1) }
         end
     end
 end
