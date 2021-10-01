@@ -35,14 +35,14 @@ RSpec.describe 'Books', type: :request do
                 book: {
                     title: 'Diegão nas terras da Rainha', 
                     published_in: '2021-09-26',
-                    publisher_id: 'publisher.id',
+                    publisher_id: publisher.id,
                     author_books_attributes: [
                        {
-                    author_id: 'author.id',
+                    author_id: author.id,
                     main_author: true,
                          }
                         ],
-                    genre_id: 'genre.id'
+                    genre_id: genre.id
                 }
             }
         end
@@ -60,7 +60,7 @@ RSpec.describe 'Books', type: :request do
         let!(:book) { create(:book)}
 
         context "With valid arguments" do
-            let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia'}} }
+            let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia'} } }
 
             it "Then updates book's title" do
                 expect { put_books }.to change{ book.reload.title }
@@ -76,12 +76,12 @@ RSpec.describe 'Books', type: :request do
         end
     end
 
-    describe '#destroy' do
+        describe '#destroy' do 
         subject(:delete_books) { delete "/books/#{book_id}" }
 
         let!(:book_id) { create(:book).id }
 
-        context "With valid argumets" do
+        context 'with valid arguments' do
             it { expect { delete_books }.to change(Book, :count).by(-1) }
         end
     end
