@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class AuthorBook < ApplicationRecord
-  belongs_to :author, dependent: :destroy
-  belongs_to :book, dependent: :destroy
+  belongs_to :author
+  belongs_to :book
 end

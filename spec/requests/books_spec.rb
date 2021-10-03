@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Books', type: :request do
@@ -76,13 +78,21 @@ RSpec.describe 'Books', type: :request do
         end
     end
 
-        describe '#destroy' do 
+    describe '#destroy' do 
         subject(:delete_books) { delete "/books/#{book_id}" }
 
         let!(:book_id) { create(:book).id }
 
         context 'with valid arguments' do
             it { expect { delete_books }.to change(Book, :count).by(-1) }
+        end
+
+        context 'with invalid arguments' do
+        let!(:book_id) { - 1 }
+
+            it 'then should not destroy the book' do
+                expect {delete_books }.to raise_error(ActiveRecord::RecordNotFound)
+            end
         end
     end
 end

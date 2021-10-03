@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthorsController < ApplicationController
 	def index
 		render json: Author.all
@@ -35,7 +37,7 @@ class AuthorsController < ApplicationController
 		end
 	end
 
-	private
+private
 
 	def author_params
 		params.require('author').permit(:name, :birthday, :nationality)

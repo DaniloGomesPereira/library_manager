@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
   before_action :set_book, only: %i[update destroy show]
 
@@ -27,7 +29,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    if @book.delete
+    if @book.destroy
       render json: 'Record removed successfully', status: :ok
     else
       render json: 'An error has occurred while trying to remove the data'
