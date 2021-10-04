@@ -3,52 +3,52 @@
 require 'rails_helper'
 
 RSpec.describe 'Publishers', type: :request do
-    describe '#index' do
-        subject (:index_publisher) { get '/publishers'}
+  describe '#index' do
+    subject (:index_publisher) { get '/publishers' }
 
-        it { is_expected.to eq(200) }
-    end
+      it { is_expected.to eq(200) }
+  end
 
     describe '#show' do
-        subject (:show_publishers) { get "/publishers/#{publisher_id}" }
+      subject (:show_publishers) { get "/publishers/#{publisher_id}" }
 
         context 'When Publisher exist' do
-            let!(:publisher_id) { create(:publisher).id }
+          let!(:publisher_id) { create(:publisher).id }
 
-            it { is_expected.to eq(200)}
+          it { is_expected.to eq(200)}
         end
 
         context 'When publisher does not exists' do
-            let(:publisher_id) { -1 }
+          let(:publisher_id) { -1 }
 
             it 'Then raise record not found' do
-                expect { show_publishers }.to raise_error(ActiveRecord::RecordNotFound)
+              expect { show_publishers }.to raise_error(ActiveRecord::RecordNotFound)
             end
         end
     end
 
     describe '#create' do
-        subject (:post_publishers) { post '/publishers', params: params.as_json }
+      subject (:post_publishers) { post '/publishers', params: params.as_json }
 
         let(:params) do
-            {
-                publisher: {
-                    name: 'Editora Divertida', 
-                    fundation: '1987-01-10', 
-                    country: 'Brazil'
-                }
-            }
-        end
+        {
+            publisher: {
+                name: 'Editora Divertida', 
+                fundation: '1987-01-10', 
+                country: 'Brazil'
+              }
+          }
+      end
 
         context 'When valid arguments' do
-            it 'Then save the Publisher' do
-                expect { post_publishers }.to change(Publisher, :count).by(1)
+          it 'Then save the Publisher' do
+              expect { post_publishers }.to change(Publisher, :count).by(1)
             end
         end
 
         context 'When invalid arguments' do
-            let(:params) do
-            {
+        let(:params) do
+          {
                 publisher: {
                     name: '', 
                     fundation: '1987-01-10', 
@@ -57,9 +57,9 @@ RSpec.describe 'Publishers', type: :request do
             }
         end
         it 'then should not create a new record' do
-            expect { post_publishers }.not_to change(Publisher, :count)
-            end
+          expect { post_publishers }.not_to change(Publisher, :count)
         end
+      end
 
     describe '#update'
         subject(:put_publishers) { put "/publishers/#{publisher.id}", params: params.as_json }
@@ -83,7 +83,7 @@ RSpec.describe 'Publishers', type: :request do
     end
 
     describe '#destroy' do
-        subject(:delete_publishers) { delete "/publishers/#{publisher_id}" }
+      subject(:delete_publishers) { delete "/publishers/#{publisher_id}" }
         
         let!(:publisher_id) { create(:publisher).id }
 
@@ -91,7 +91,7 @@ RSpec.describe 'Publishers', type: :request do
           it { expect { delete_publishers }.to change(Publisher, :count).by(-1) }
         end
 
-        context ' With invalid arguments' do
+        context 'With invalid arguments' do
           let!(:publisher_id) { -1 }
 
             it 'Then should not destroy the publisher' do
