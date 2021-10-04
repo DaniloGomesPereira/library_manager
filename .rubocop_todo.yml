@@ -143,8 +143,8 @@ Layout/IndentationStyle:
 # Offense count: 155
 # Cop supports --auto-correct.
 # Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Enabled: false
+#Layout/IndentationWidth:
+#  Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
@@ -351,8 +351,8 @@ Style/RedundantFetchBlock:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
 # SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Enabled: false
+#Style/StringLiterals:
+#  Enabled: false
 
 # Offense count: 3
 # Cop supports --auto-correct.

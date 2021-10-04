@@ -68,7 +68,7 @@ RSpec.describe 'Authors', type: :request do
         let!(:author) { create(:author) }
 
         context 'With valid arguments' do
-            let(:params) { { author: { name: "Diego"} } }
+            let(:params) { { author: { name: 'Diego' } } }
 
             it "Then updates the author's name" do
                 expect { put_authors }.to change{ author.reload.name }
@@ -76,7 +76,7 @@ RSpec.describe 'Authors', type: :request do
         end
 
         context 'With invalid arguments' do
-            let(:params) { { author: { name: "" } } } 
+            let(:params) { { author: { name: '' } } } 
               
             it "Then should not update the author's name " do
                 expect { put_authors }.not_to change{ author.reload.name }

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Publisher do
     describe 'Inform a new Publisher' do
-        context "When is valid" do
+        context 'When is valid' do
             let(:publisher) {build(:publisher)}
 
             it 'then ok' do

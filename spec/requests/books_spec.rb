@@ -12,16 +12,16 @@ RSpec.describe 'Books', type: :request do
     describe '#show' do
         subject(:show_books) { get "/books/#{book_id}"}
 
-        context "When book exist" do
+        context 'When book exist' do
             let!(:book_id) { create(:book).id }
 
             it { is_expected.to eq(200) }
         end
 
-        context "When book does not exist" do
+        context 'When book does not exist' do
             let(:book_id) { -1 }
 
-            it "Then raise record not found" do
+            it 'Then raise record not found' do
                 expect { show_books }.to raise_error(ActiveRecord::RecordNotFound)
             end
         end
@@ -61,7 +61,7 @@ RSpec.describe 'Books', type: :request do
 
         let!(:book) { create(:book)}
 
-        context "With valid arguments" do
+        context 'With valid arguments' do
             let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia'} } }
 
             it "Then updates book's title" do
@@ -69,7 +69,7 @@ RSpec.describe 'Books', type: :request do
             end
         end
 
-        context "Whit invalid arguments" do
+        context 'Whit invalid arguments' do
             let(:params) { { book: { title: ''} } }
 
             it "Then should not updates book's title" do
