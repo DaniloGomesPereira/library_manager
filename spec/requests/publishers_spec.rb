@@ -33,8 +33,8 @@ RSpec.describe 'Publishers', type: :request do
     let(:params) do
       {
         publisher: {
-        name: 'Editora Divertida', 
-        fundation: '1987-01-10', 
+        name: 'Editora Divertida',
+        fundation: '1987-01-10',
         country: 'Brazil'
           }
         }
@@ -50,8 +50,8 @@ RSpec.describe 'Publishers', type: :request do
     let(:params) do
       {
         publisher: {
-        name: '', 
-        fundation: '1987-01-10', 
+        name: '',
+        fundation: '1987-01-10',
         country: 'Brazil'
           }
         }
@@ -61,7 +61,7 @@ RSpec.describe 'Publishers', type: :request do
     end
   end
 
-  describe '#update'
+    describe '#update'
     subject(:put_publishers) { put "/publishers/#{publisher.id}", params: params.as_json }
 
     let!(:publisher) { create(:publisher) }

@@ -46,7 +46,7 @@ RSpec.describe 'Authors', type: :request do
       end
     end
 
-    context 'with invalid arguments' do 
+    context 'with invalid arguments' do
       let(:params) do
         {
             author: {
@@ -60,9 +60,9 @@ RSpec.describe 'Authors', type: :request do
       it 'then should not create a new record' do
         expect { post_authors }.not_to change(Author, :count)
       end
-    end    
+    end
   end
-    
+
   describe '#update' do
     subject(:put_authors) { put "/authors/#{author.id}", params: params.as_json }
 
@@ -77,15 +77,15 @@ RSpec.describe 'Authors', type: :request do
     end
 
     context 'With invalid arguments' do
-      let(:params) { { author: { name: '' } } } 
-              
+      let(:params) { { author: { name: '' } } }
+
       it "Then should not update the author's name " do
         expect { put_authors }.not_to change{ author.reload.name }
       end
     end
   end
-    
-  describe '#destroy' do 
+
+  describe '#destroy' do
     subject(:delete_authors) { delete "/authors/#{author_id}" }
 
     let!(:author_id) { create(:author).id }
@@ -100,6 +100,6 @@ RSpec.describe 'Authors', type: :request do
       it 'then should not destroy the author' do
         expect { delete_authors }.to raise_error(ActiveRecord::RecordNotFound)
       end
-    end            
+    end
   end
 end

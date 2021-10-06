@@ -30,17 +30,17 @@ RSpec.describe 'Genre', type: :request do
   describe '#create' do
     subject(:post_genres) { post '/genres', params: params.as_json }
 
-    let(:params) { { genre: { literary_genres: 'Romance' } } }        
-        
+    let(:params) { { genre: { literary_genres: 'Romance' } } }
+
     context 'With valid arguments' do
       it 'Then save the Genre' do
         expect { post_genres }.to change(Genre, :count).by(1)
       end
-    end 
-        
+    end
+
     context 'With invalid arguments' do
       let(:params) { { genre: { literary_genres: '' } } }
-            
+
       it 'Then should not create a new record' do
         expect { post_genres }.not_to change(Genre, :count)
       end
@@ -83,7 +83,7 @@ RSpec.describe 'Genre', type: :request do
 
       it 'then should not destroy the genre' do
         expect { delete_genres }.to raise_error(ActiveRecord::RecordNotFound)
-      end          
+      end
     end
   end
 end

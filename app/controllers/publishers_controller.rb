@@ -33,7 +33,7 @@ class PublishersController < ApplicationController
     if publisher.delete
       render json: 'Record removed successfully', status: :ok
     else
-      render json: 'An error has occurred while trying to remove the data'  
+      render json: 'An error has occurred while trying to remove the data'
     end
   end
 

@@ -17,7 +17,7 @@ RSpec.describe Genre do
 
       it 'then not OK' do
         expect(genre).not_to be_valid
-			   end
-		  end
-	 end
+      end
+    end
+  end
 end

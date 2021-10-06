@@ -114,31 +114,31 @@ Layout/FirstHashElementIndentation:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: normal, indented_internal_methods
-Layout/IndentationConsistency:
-  Exclude:
-    - 'app/controllers/publishers_controller.rb'
-    - 'app/models/genre.rb'
-    - 'spec/models/book_spec.rb'
-    - 'spec/models/genre_spec.rb'
-    - 'spec/requests/authors_spec.rb'
-    - 'spec/requests/books_spec.rb'
-    - 'spec/requests/publishers_spec.rb'
+# Layout/IndentationConsistency:
+#   Exclude:
+#     - 'app/controllers/publishers_controller.rb'
+#     - 'app/models/genre.rb'
+#     - 'spec/models/book_spec.rb'
+#     - 'spec/models/genre_spec.rb'
+#     - 'spec/requests/authors_spec.rb'
+#     - 'spec/requests/books_spec.rb'
+#     - 'spec/requests/publishers_spec.rb'
 
 # Offense count: 116
 # Cop supports --auto-correct.
 # Configuration parameters: IndentationWidth, EnforcedStyle.
 # SupportedStyles: spaces, tabs
-Layout/IndentationStyle:
-  Exclude:
-    - 'app/controllers/authors_controller.rb'
-    - 'app/controllers/genres_controller.rb'
-    - 'app/models/genre.rb'
-    - 'db/seeds.rb'
-    - 'spec/factories/author.rb'
-    - 'spec/models/author_spec.rb'
-    - 'spec/models/book_spec.rb'
-    - 'spec/models/genre_spec.rb'
-    - 'spec/models/publisher_spec.rb'
+# Layout/IndentationStyle:
+#   Exclude:
+#     - 'app/controllers/authors_controller.rb'
+#     - 'app/controllers/genres_controller.rb'
+#     - 'app/models/genre.rb'
+#     - 'db/seeds.rb'
+#     - 'spec/factories/author.rb'
+#     - 'spec/models/author_spec.rb'
+#     - 'spec/models/book_spec.rb'
+#     - 'spec/models/genre_spec.rb'
+#     - 'spec/models/publisher_spec.rb'
 
 # Offense count: 155
 # Cop supports --auto-correct.
@@ -237,16 +237,16 @@ Layout/TrailingEmptyLines:
 # Offense count: 28
 # Cop supports --auto-correct.
 # Configuration parameters: AllowInHeredoc.
-Layout/TrailingWhitespace:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
-    - 'app/controllers/publishers_controller.rb'
-    - 'app/models/book.rb'
-    - 'spec/factories/publisher.rb'
-    - 'spec/requests/authors_spec.rb'
-    - 'spec/requests/books_spec.rb'
-    - 'spec/requests/genres_spec.rb'
-    - 'spec/requests/publishers_spec.rb'
+# Layout/TrailingWhitespace:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
+#     - 'app/controllers/publishers_controller.rb'
+#     - 'app/models/book.rb'
+#     - 'spec/factories/publisher.rb'
+#     - 'spec/requests/authors_spec.rb'
+#     - 'spec/requests/books_spec.rb'
+#     - 'spec/requests/genres_spec.rb'
+#     - 'spec/requests/publishers_spec.rb'
 
 # Offense count: 8
 # Configuration parameters: IgnoredMethods.

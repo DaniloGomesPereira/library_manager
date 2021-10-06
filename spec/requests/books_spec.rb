@@ -35,7 +35,7 @@ RSpec.describe 'Books', type: :request do
     let(:params) do
       {
           book: {
-            title: 'Diegão nas terras da Rainha', 
+            title: 'Diegão nas terras da Rainha',
             published_in: '2021-09-26',
             publisher_id: publisher.id,
             author_books_attributes: [
@@ -53,7 +53,7 @@ RSpec.describe 'Books', type: :request do
       it 'Then save the book' do
         expect { post_books }.to change(Book, :count).by(1)
       end
-    end        
+    end
   end
   describe '#update' do
     subject(:put_books) { put "/books/#{book.id}", params: params.as_json }
@@ -63,9 +63,9 @@ RSpec.describe 'Books', type: :request do
     context 'With valid arguments' do
       let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia'} } }
 
-        it "Then updates book's title" do
-          expect { put_books }.to change{ book.reload.title }
-        end
+      it "Then updates book's title" do
+        expect { put_books }.to change{ book.reload.title }
+      end
     end
 
     context 'Whit invalid arguments' do
@@ -77,7 +77,7 @@ RSpec.describe 'Books', type: :request do
     end
   end
 
-  describe '#destroy' do 
+  describe '#destroy' do
     subject(:delete_books) { delete "/books/#{book_id}" }
 
     let!(:book_id) { create(:book).id }
