@@ -11,35 +11,35 @@ class PublishersController < ApplicationController
   end
 
   def create
-   publisher = Publisher.new(publisher_params)
-   if publisher.save
-    render json: publisher, status: :created
-  else
-    render json: publisher.errors.full_messages, status: :unprocessable_entity
+    publisher = Publisher.new(publisher_params)
+    if publisher.save
+      render json: publisher, status: :created
+    else
+      render json: publisher.errors.full_messages, status: :unprocessable_entity
+    end
   end
-end
 
-def update
-  publisher = Publisher.find(params[:id])
-  if publisher.update(publisher_params)
-    render json: publisher, status: :ok
-  else
-    render json: publisher.errors.full_messages, status: :unprocessable_entity
+  def update
+    publisher = Publisher.find(params[:id])
+    if publisher.update(publisher_params)
+      render json: publisher, status: :ok
+    else
+      render json: publisher.errors.full_messages, status: :unprocessable_entity
+    end
   end
-end
 
-def destroy
-  publisher = Publisher.find(params[:id])
-  if publisher.delete
-    render json: 'Record removed successfully', status: :ok
-  else
-    render json: 'An error has occurred while trying to remove the data'  
+  def destroy
+    publisher = Publisher.find(params[:id])
+    if publisher.delete
+      render json: 'Record removed successfully', status: :ok
+    else
+      render json: 'An error has occurred while trying to remove the data'  
+    end
   end
-end
 
-private
+  private
 
-def publisher_params
-  params.require('publisher').permit(:name, :fundation, :country)
-end
+  def publisher_params
+    params.require('publisher').permit(:name, :fundation, :country)
+  end
 end

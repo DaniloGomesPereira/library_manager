@@ -13,11 +13,11 @@ RSpec.describe Publisher do
     end
 
     context "when it's not valid" do
-		  let(:publisher) { build(:publisher, country: nil, fundation: nil) }
+      let(:publisher) { build(:publisher, country: nil, fundation: nil) }
 
-			it 'then not OK' do
-				expect(publisher).not_to be_valid
-      end
+			   it 'then not OK' do
+   				    expect(publisher).not_to be_valid
+         end
     end
   end
 end
