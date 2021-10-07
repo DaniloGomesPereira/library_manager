@@ -15,7 +15,7 @@ RSpec.describe 'Publishers', type: :request do
     context 'When Publisher exist' do
       let!(:publisher_id) { create(:publisher).id }
 
-      it { is_expected.to eq(200)}
+      it { is_expected.to eq(200) }
     end
 
     context 'When publisher does not exists' do
@@ -33,11 +33,11 @@ RSpec.describe 'Publishers', type: :request do
     let(:params) do
       {
         publisher: {
-        name: 'Editora Divertida',
-        fundation: '1987-01-10',
-        country: 'Brazil'
-          }
+          name: 'Editora Divertida',
+          fundation: '1987-01-10',
+          country: 'Brazil'
         }
+      }
     end
 
     context 'When valid arguments' do
@@ -50,11 +50,11 @@ RSpec.describe 'Publishers', type: :request do
     let(:params) do
       {
         publisher: {
-        name: '',
-        fundation: '1987-01-10',
-        country: 'Brazil'
-          }
+          name: '',
+          fundation: '1987-01-10',
+          country: 'Brazil'
         }
+      }
     end
     it 'then should not create a new record' do
       expect { post_publishers }.not_to change(Publisher, :count)

@@ -36,8 +36,8 @@ RSpec.describe 'Authors', type: :request do
           name: 'Diego da Silva',
           nationality: 'Brazilian',
           birthday: '2000-03-12'
-          }
         }
+      }
     end
 
     context 'with valid arguments' do
@@ -49,12 +49,12 @@ RSpec.describe 'Authors', type: :request do
     context 'with invalid arguments' do
       let(:params) do
         {
-            author: {
+          author: {
             name: '',
             nationality: 'Brazilian',
             birthday: '2000-03-12'
-                      }
           }
+        }
       end
 
       it 'then should not create a new record' do
