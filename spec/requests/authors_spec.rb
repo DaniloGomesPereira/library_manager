@@ -72,7 +72,7 @@ RSpec.describe 'Authors', type: :request do
       let(:params) { { author: { name: 'Diego' } } }
 
       it "Then updates the author's name" do
-        expect { put_authors }.to change{ author.reload.name }
+        expect { put_authors }.to change { author.reload.name }
       end
     end
 
@@ -80,7 +80,7 @@ RSpec.describe 'Authors', type: :request do
       let(:params) { { author: { name: '' } } }
 
       it "Then should not update the author's name " do
-        expect { put_authors }.not_to change{ author.reload.name }
+        expect { put_authors }.not_to change { author.reload.name }
       end
     end
   end

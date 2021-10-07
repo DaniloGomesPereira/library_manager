@@ -47,7 +47,7 @@ RSpec.describe 'Genre', type: :request do
     end
   end
 
-  describe '#update'do
+  describe '#update' do
     subject(:put_genres) { put "/genres/#{genre.id}", params: params.as_json }
 
     let!(:genre) { create(:genre) }

@@ -39,8 +39,8 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.
-    require('book').
+    params
+    require('book')
     permit(:title, :published_in, :publisher_id,
       author_books_attributes: %i[author_id main_author],
       genre_books_attributes: %i[genre_id])

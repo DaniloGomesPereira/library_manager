@@ -8,7 +8,7 @@ FactoryBot.define do
     end
 
     title { FFaker::Book.title }
-    published_in { Time.zone.today - rand(05..150).years }
+    published_in { Time.zone.today - rand(5..150).years }
     publisher
 
     after(:build) do |book, evaluator| # evaluator é  objeto que intera sobre os parâmetros do "transient"

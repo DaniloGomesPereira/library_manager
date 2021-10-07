@@ -61,18 +61,18 @@ RSpec.describe 'Books', type: :request do
     let!(:book) { create(:book) }
 
     context 'With valid arguments' do
-      let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia'} } }
+      let(:params) { { book: { title: 'Diegão de Kilt - Uma aventura na Escocia' } } }
 
       it "Then updates book's title" do
-        expect { put_books }.to change{ book.reload.title }
+        expect { put_books }.to change { book.reload.title }
       end
     end
 
     context 'Whit invalid arguments' do
-      let(:params) { { book: { title: ''} } }
+      let(:params) { { book: { title: '' } } }
 
       it "Then should not updates book's title" do
-        expect { put_books }.not_to change{ book.reload.title }
+        expect { put_books }.not_to change { book.reload.title }
       end
     end
   end

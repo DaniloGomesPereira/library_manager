@@ -47,19 +47,19 @@ RSpec.describe 'Publishers', type: :request do
     end
 
     context 'When invalid arguments' do
-    let(:params) do
-      {
-        publisher: {
-          name: '',
-          fundation: '1987-01-10',
-          country: 'Brazil'
+      let(:params) do
+        {
+          publisher: {
+            name: '',
+            fundation: '1987-01-10',
+            country: 'Brazil'
+          }
         }
-      }
+      end
+      it 'then should not create a new record' do
+        expect { post_publishers }.not_to change(Publisher, :count)
+      end
     end
-    it 'then should not create a new record' do
-      expect { post_publishers }.not_to change(Publisher, :count)
-    end
-  end
 
     describe '#update'
     subject(:put_publishers) { put "/publishers/#{publisher.id}", params: params.as_json }

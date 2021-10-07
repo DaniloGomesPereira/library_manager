@@ -10,9 +10,9 @@
 # Cop supports --auto-correct.
 # Configuration parameters: TreatCommentsAsGroupSeparators, ConsiderPunctuation, Include.
 # Include: **/*.gemfile, **/Gemfile, **/gems.rb
-Bundler/OrderedGems:
-  Exclude:
-    - 'Gemfile'
+# Bundler/OrderedGems:
+#   Exclude:
+#     - 'Gemfile'
 
 # Offense count: 3
 # Cop supports --auto-correct.
@@ -36,48 +36,48 @@ Layout/ArgumentAlignment:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith.
 # SupportedStylesAlignWith: either, start_of_block, start_of_line
-Layout/BlockAlignment:
-  Exclude:
-    - 'spec/models/book_spec.rb'
-    - 'spec/models/publisher_spec.rb'
-    - 'spec/requests/books_spec.rb'
-    - 'spec/requests/publishers_spec.rb'
+# Layout/BlockAlignment:
+#   Exclude:
+#     - 'spec/models/book_spec.rb'
+#     - 'spec/models/publisher_spec.rb'
+#     - 'spec/requests/books_spec.rb'
+#     - 'spec/requests/publishers_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, Severity.
 # SupportedStylesAlignWith: start_of_line, def
-Layout/DefEndAlignment:
-  Exclude:
-    - 'app/controllers/publishers_controller.rb'
+# Layout/DefEndAlignment:
+#   Exclude:
+#     - 'app/controllers/publishers_controller.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: leading, trailing
-Layout/DotPosition:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
+# Layout/DotPosition:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/ElseAlignment:
-  Exclude:
-    - 'app/controllers/publishers_controller.rb'
+# Layout/ElseAlignment:
+#   Exclude:
+#     - 'app/controllers/publishers_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/EmptyLines:
-  Exclude:
-    - 'config/environments/development.rb'
+# Layout/EmptyLines:
+#   Exclude:
+#     - 'config/environments/development.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, Severity.
 # SupportedStylesAlignWith: keyword, variable, start_of_line
-Layout/EndAlignment:
-  Exclude:
-    - 'app/controllers/publishers_controller.rb'
+# Layout/EndAlignment:
+#   Exclude:
+#     - 'app/controllers/publishers_controller.rb'
 
 # Offense count: 40
 # Configuration parameters: EnforcedStyle.
@@ -88,17 +88,17 @@ Layout/EndOfLine:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, AllowBeforeTrailingComments, ForceEqualSignAlignment.
-Layout/ExtraSpacing:
-  Exclude:
-    - 'config/environments/production.rb'
+# Layout/ExtraSpacing:
+#   Exclude:
+#     - 'config/environments/production.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: special_inside_parentheses, consistent, align_brackets
-Layout/FirstArrayElementIndentation:
-  Exclude:
-    - 'spec/requests/books_spec.rb'
+# Layout/FirstArrayElementIndentation:
+#   Exclude:
+#     - 'spec/requests/books_spec.rb'
 
 # Offense count: 12
 # Cop supports --auto-correct.
@@ -149,50 +149,50 @@ Layout/FirstArrayElementIndentation:
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowDoxygenCommentStyle, AllowGemfileRubyComment.
-Layout/LeadingCommentSpace:
-  Exclude:
-    - 'spec/models/book_spec.rb'
+# Layout/LeadingCommentSpace:
+#   Exclude:
+#     - 'spec/models/book_spec.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: aligned, indented, indented_relative_to_receiver
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
+# Layout/MultilineMethodCallIndentation:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
-Layout/SpaceAroundKeyword:
-  Exclude:
-    - 'spec/requests/genres_spec.rb'
+# Layout/SpaceAroundKeyword:
+#   Exclude:
+#     - 'spec/requests/genres_spec.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: AllowForAlignment, EnforcedStyleForExponentOperator.
 # SupportedStylesForExponentOperator: space, no_space
-Layout/SpaceAroundOperators:
-  Exclude:
-    - 'config/environments/production.rb'
+# Layout/SpaceAroundOperators:
+#   Exclude:
+#     - 'config/environments/production.rb'
 
 # Offense count: 4
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
 # SupportedStyles: space, no_space
 # SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceBeforeBlockBraces:
-  Exclude:
-    - 'spec/requests/authors_spec.rb'
-    - 'spec/requests/books_spec.rb'
+# Layout/SpaceBeforeBlockBraces:
+#   Exclude:
+#     - 'spec/requests/authors_spec.rb'
+#     - 'spec/requests/books_spec.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBrackets: space, no_space
-Layout/SpaceInsideArrayLiteralBrackets:
-  Exclude:
-    - 'config/environments/production.rb'
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Exclude:
+#     - 'config/environments/production.rb'
 
 # Offense count: 10
 # Cop supports --auto-correct.
@@ -212,10 +212,10 @@ Layout/SpaceInsideArrayLiteralBrackets:
 # Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
 # SupportedStyles: space, no_space, compact
 # SupportedStylesForEmptyBraces: space, no_space
-Layout/SpaceInsideHashLiteralBraces:
-  Exclude:
-    - 'spec/requests/authors_spec.rb'
-    - 'spec/requests/books_spec.rb'
+# Layout/SpaceInsideHashLiteralBraces:
+#   Exclude:
+#     - 'spec/requests/authors_spec.rb'
+#     - 'spec/requests/books_spec.rb'
 
 # Offense count: 10
 # Cop supports --auto-correct.
@@ -335,17 +335,17 @@ Rails/Output:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedOctalStyle.
 # SupportedOctalStyles: zero_with_o, zero_only
-Style/NumericLiteralPrefix:
-  Exclude:
-    - 'spec/factories/book.rb'
-    - 'spec/factories/publisher.rb'
+# Style/NumericLiteralPrefix:
+#   Exclude:
+#     - 'spec/factories/book.rb'
+#     - 'spec/factories/publisher.rb'
 
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: SafeForConstants.
-Style/RedundantFetchBlock:
-  Exclude:
-    - 'config/puma.rb'
+# Style/RedundantFetchBlock:
+#   Exclude:
+#     - 'config/puma.rb'
 
 # Offense count: 49
 # Cop supports --auto-correct.

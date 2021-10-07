@@ -4,3 +4,7 @@ require: rubocop-rails
 
 Layout/AccessModifierIndentation:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+  
