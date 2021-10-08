@@ -28,9 +28,9 @@
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, IndentationWidth.
 # SupportedStyles: with_first_argument, with_fixed_indentation
-Layout/ArgumentAlignment:
-  Exclude:
-    - 'app/controllers/books_controller.rb'
+# Layout/ArgumentAlignment:
+#   Exclude:
+#     - 'app/controllers/books_controller.rb'
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -259,10 +259,10 @@ Lint/AmbiguousBlockAssociation:
 
 # Offense count: 4
 # Cop supports --auto-correct.
-Lint/ParenthesesAsGroupedExpression:
-  Exclude:
-    - 'spec/requests/genres_spec.rb'
-    - 'spec/requests/publishers_spec.rb'
+# Lint/ParenthesesAsGroupedExpression:
+#   Exclude:
+#     - 'spec/requests/genres_spec.rb'
+#     - 'spec/requests/publishers_spec.rb'
 
 # Offense count: 6
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
@@ -295,9 +295,9 @@ Rails/NotNullColumn:
 # Cop supports --auto-correct.
 # Configuration parameters: Include.
 # Include: app/**/*.rb, config/**/*.rb, db/**/*.rb, lib/**/*.rb
-Rails/Output:
-  Exclude:
-    - 'db/seeds.rb'
+# Rails/Output:
+#   Exclude:
+#     - 'db/seeds.rb'
 
 # Offense count: 14
 # Configuration parameters: AllowedConstants.
@@ -358,15 +358,15 @@ Rails/Output:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, MinSize.
 # SupportedStyles: percent, brackets
-Style/SymbolArray:
-  Exclude:
-    - 'Gemfile'
-    - 'config/initializers/filter_parameter_logging.rb'
+# Style/SymbolArray:
+#   Exclude:
+#     - 'Gemfile'
+#     - 'config/initializers/filter_parameter_logging.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline.
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInHashLiteral:
-  Exclude:
-    - 'spec/requests/books_spec.rb'
+# Style/TrailingCommaInHashLiteral:
+#   Exclude:
+#     - 'spec/requests/books_spec.rb'

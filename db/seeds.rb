@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-p 'Creating books'
+Rails.logger.debug 'Creating books'
 10.times do
   FactoryBot.create(:book)
 end

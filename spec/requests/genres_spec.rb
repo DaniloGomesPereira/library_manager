@@ -10,7 +10,7 @@ RSpec.describe 'Genre', type: :request do
   end
 
   describe '#show' do
-    subject (:show_genres) { get "/genres/#{genre_id}" }
+    subject(:show_genres) { get "/genres/#{genre_id}" }
 
     context 'When Genre exits' do
       let!(:genre_id) { create(:genre).id }

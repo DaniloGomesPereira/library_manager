@@ -41,7 +41,7 @@ RSpec.describe 'Books', type: :request do
           author_books_attributes: [
             {
               author_id: author.id,
-              main_author: true,
+              main_author: true
             }
           ],
           genre_id: genre.id
