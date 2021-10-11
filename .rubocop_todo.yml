@@ -267,8 +267,8 @@ Lint/AmbiguousBlockAssociation:
 # Offense count: 6
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 # IgnoredMethods: refine
-Metrics/BlockLength:
-  Max: 77
+#Metrics/BlockLength:
+  #Max: 77
 
 # Offense count: 1
 # Configuration parameters: EnforcedStyle.

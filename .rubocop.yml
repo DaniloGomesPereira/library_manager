@@ -8,3 +8,5 @@ Layout/AccessModifierIndentation:
 Style/Documentation:
   Enabled: false
   
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'subject', 'expect', 'let']
