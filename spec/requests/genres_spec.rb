@@ -12,16 +12,16 @@ RSpec.describe 'Genre', type: :request do
   describe '#show' do
     subject(:show_genres) { get "/genres/#{genre_id}" }
 
-    context 'When Genre exits' do
-      let!(:genre_id) { create(:genre).id }
+    context 'when Genre exits' do
+      let(:genre_id) { create(:genre).id }
 
       it { is_expected.to eq(200) }
     end
 
-    context 'When Genre does not exist' do
+    context 'when Genre does not exist' do
       let(:genre_id) { -1 }
 
-      it 'Then raise record not found' do
+      it 'then raise record not found' do
         expect { show_genres }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
@@ -32,16 +32,16 @@ RSpec.describe 'Genre', type: :request do
 
     let(:params) { { genre: { literary_genres: 'Romance' } } }
 
-    context 'With valid arguments' do
-      it 'Then save the Genre' do
+    context 'with valid arguments' do
+      it 'then save the Genre' do
         expect { post_genres }.to change(Genre, :count).by(1)
       end
     end
 
-    context 'With invalid arguments' do
+    context 'with invalid arguments' do
       let(:params) { { genre: { literary_genres: '' } } }
 
-      it 'Then should not create a new record' do
+      it 'then should not create a new record' do
         expect { post_genres }.not_to change(Genre, :count)
       end
     end
@@ -52,19 +52,19 @@ RSpec.describe 'Genre', type: :request do
 
     let!(:genre) { create(:genre) }
 
-    context 'With valid arguments' do
+    context 'with valid arguments' do
       let(:params) { { genre: { literary_genres: 'Terror' } } }
 
-      it 'Then updates literary genres' do
-        expect { put_genres }.to change { genre.reload.literary_genres }
+      it 'then updates literary genres' do
+        expect { put_genres }.to(change { genre.reload.literary_genres })
       end
     end
 
-    context 'With invalid arguments' do
+    context 'with invalid arguments' do
       let(:params) { { genre: { literary_genres: '' } } }
 
-      it 'Then should not update literary_genres' do
-        expect { put_genres }.not_to change { genre.reload.literary_genres }
+      it 'then should not update literary_genres' do
+        expect { put_genres }.not_to(change { genre.reload.literary_genres })
       end
     end
   end
@@ -74,12 +74,12 @@ RSpec.describe 'Genre', type: :request do
 
     let!(:genre_id) { create(:genre).id }
 
-    context 'With valid arguments' do
+    context 'with valid arguments' do
       it { expect { delete_genres }.to change(Genre, :count).by(-1) }
     end
 
-    context 'With invalid arguments' do
-      let!(:genre_id) { -1 }
+    context 'with invalid arguments' do
+      let(:genre_id) { -1 }
 
       it 'then should not destroy the genre' do
         expect { delete_genres }.to raise_error(ActiveRecord::RecordNotFound)

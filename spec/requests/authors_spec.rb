@@ -13,7 +13,7 @@ RSpec.describe 'Authors', type: :request do
     subject(:show_authors) { get "/authors/#{author_id}" }
 
     context 'when author exists' do
-      let!(:author_id) { create(:author).id }
+      let(:author_id) { create(:author).id }
 
       it { is_expected.to eq(200) }
     end
@@ -68,19 +68,19 @@ RSpec.describe 'Authors', type: :request do
 
     let!(:author) { create(:author) }
 
-    context 'With valid arguments' do
+    context 'with valid arguments' do
       let(:params) { { author: { name: 'Diego' } } }
 
-      it "Then updates the author's name" do
-        expect { put_authors }.to change { author.reload.name }
+      it "then updates the author's name" do
+        expect { put_authors }.to(change { author.reload.name })
       end
     end
 
-    context 'With invalid arguments' do
+    context 'with invalid arguments' do
       let(:params) { { author: { name: '' } } }
 
-      it "Then should not update the author's name " do
-        expect { put_authors }.not_to change { author.reload.name }
+      it "then should not update the author's name " do
+        expect { put_authors }.not_to(change { author.reload.name })
       end
     end
   end
@@ -95,7 +95,7 @@ RSpec.describe 'Authors', type: :request do
     end
 
     context 'with invalid arguments' do
-      let!(:author_id) { -1 }
+      let(:author_id) { -1 }
 
       it 'then should not destroy the author' do
         expect { delete_authors }.to raise_error(ActiveRecord::RecordNotFound)

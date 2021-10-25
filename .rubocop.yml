@@ -1,6 +1,8 @@
 inherit_from: .rubocop_todo.yml
 
-require: rubocop-rails
+require:
+  - rubocop-rails 
+  - rubocop-rspec
 
 Layout/AccessModifierIndentation:
   Enabled: false
@@ -10,3 +12,14 @@ Style/Documentation:
   
 Metrics/BlockLength:
   ExcludedMethods: ['describe', 'context', 'subject', 'expect', 'let']
+
+Layout/EndOfLine:
+  Enabled: false
+
+RSpec/LetSetup:
+  Exclude:
+    - spec/requests/publishers_spec.rb
+
+Rails/FilePath:
+  Enabled: false
+  

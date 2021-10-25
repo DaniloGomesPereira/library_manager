@@ -26,4 +26,5 @@ group :test do
 end
 
 gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
