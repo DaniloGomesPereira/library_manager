@@ -13,11 +13,12 @@ RSpec.describe Author do
     end
 
     context "when it's not valid" do
-      let(:author) { build(:author, name: nil) }
+      it { should validate_presence_of(:name) }
+      # let(:author) { build(:author, name: nil) }
 
-      it 'then not OK' do
-        expect(author).not_to be_valid
-      end
+      # it 'then not OK' do
+      #   expect(author).not_to be_valid
+      
     end
   end
 end
