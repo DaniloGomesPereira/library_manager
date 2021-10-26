@@ -11,9 +11,10 @@ RSpec.describe Book do
     end
 
     context "when it's not valid" do
-      let(:book) { build(:book, title: nil) }
+      it { should validate_presence_of(:title) }
+      # let(:book) { build(:book, title: nil) }
 
-      it { expect(book).not_to be_valid } # dessa forma roda um texto "padrão do rspec"
+      # it { expect(book).not_to be_valid } # dessa forma roda um texto "padrão do rspec"
     end
   end
 end

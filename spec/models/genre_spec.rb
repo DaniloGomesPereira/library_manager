@@ -13,11 +13,12 @@ RSpec.describe Genre do
     end
 
     context "when it's not valid" do
-      let(:genre) { build(:genre, literary_genres: nil) }
+      it { should validate_presence_of(:literary_genres) }
+      # let(:genre) { build(:genre, literary_genres: nil) }
 
-      it 'then not OK' do
-        expect(genre).not_to be_valid
-      end
+      # it 'then not OK' do
+      #   expect(genre).not_to be_valid
+      # end
     end
   end
 end
