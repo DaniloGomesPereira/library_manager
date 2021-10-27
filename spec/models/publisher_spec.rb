@@ -13,9 +13,9 @@ RSpec.describe Publisher do
     end
 
     context "when it's not valid" do
-      it { should validate_presence_of(:name) }
-      it { should validate_presence_of(:country) }
-      it { should validate_presence_of(:fundation) }
+      it { is_expected.to validate_presence_of(:name) }
+      it { is_expected.to validate_presence_of(:country) }
+      it { is_expected.to validate_presence_of(:fundation) }
       # let(:publisher) { build(:publisher, country: nil, fundation: nil) }
 
       # it 'then not OK' do
