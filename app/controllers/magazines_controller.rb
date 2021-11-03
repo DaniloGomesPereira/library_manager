@@ -39,10 +39,13 @@ class MagazinesController < ApplicationController
 private
 
   def magazine_params
-    params.require('magazine').permit(:title, :published_in, :publisher_id)
+    params
+      .require('magazine')
+      .permit(:title, :published_in, :publisher_id,
+              genre_magazines_attributes: %i[genre_id])
   end
 
   def set_magazine
-    @magazine = Maganize.find(params[:id])
+    @magazine = Magazine.find(params[:id])
   end
 end
