@@ -2,7 +2,12 @@
 
 FactoryBot.define do
   factory :magazine do
-    title { 'MyString' }
-    published_in { '2021-11-01' }
+    transient do
+      genre { create(:genre) }
+    end
+
+    title { FFaker::Book.title }
+    published_in { Time.zone.today - rand(2..30).years }
+    publisher
   end
 end
