@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Magazines', type: :request do
   describe '#index' do
-    subject (:index_magazines) { get '/magazines' }
+    subject(:index_magazines) { get '/magazines' }
 
     it { is_expected.to eq(200) }
   end
 
   describe '#show' do
-    subject(:show_magazines) { get "/magazines/#{magazine_id}"}
+    subject(:show_magazines) { get "/magazines/#{magazine_id}" }
 
     context 'when magazine exist' do
       let(:magazine_id) { create(:magazine).id }
@@ -51,16 +51,42 @@ RSpec.describe 'Magazines', type: :request do
   end
 
   describe '#update' do
-    it 'returns http success' do
-      get '/magazines/update'
-      expect(response).to have_http_status(:success)
+    subject(:put_magazines) { put "/magazines/#{magazine.id}", params: params.as_json }
+
+    let!(:magazine) { create(:magazine) }
+
+    context 'with valid arguments' do
+      let(:params) { { magazine: { title: 'Revista do Seu Zé' } } }
+
+      it "then updates magazine's title" do
+        expect { put_magazines }.to(change { magazine.reload.title })
+      end
+    end
+
+    context 'with invalid arguments' do
+      let(:params) { { magazine: { title: '' } } }
+
+      it "then should not change magazine's title" do
+        expect { put_magazines }.not_to(change { magazine.reload.title })
+      end
     end
   end
 
-  describe 'GET /destroy' do
-    it 'returns http success' do
-      get '/magazines/destroy'
-      expect(response).to have_http_status(:success)
+  describe '#destroy' do
+    subject(:delete_magazines) { delete "/magazines/#{magazine_id}" }
+
+    let!(:magazine_id) { create(:magazine).id }
+
+    context 'with valid arguments' do
+      it { expect { delete_magazines }.to change(Magazine, :count).by(-1) }
+    end
+
+    context 'with invalid arguments' do
+      let(:magazine_id) { -1 }
+
+      it 'then should not destroy the magazine' do
+        expect { delete_magazines }.to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end
