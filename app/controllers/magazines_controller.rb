@@ -21,6 +21,7 @@ class MagazinesController < ApplicationController
   end
 
   def update
+    magazine = Magazine.find(params[:id])
     if @magazine.update(magazine_params)
       render json: magazine, status: :ok
     else
