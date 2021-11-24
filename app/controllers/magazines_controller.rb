@@ -30,7 +30,7 @@ class MagazinesController < ApplicationController
   end
 
   def destroy
-    if @magazine.destroy
+    if @magazine.delete
       render json: 'Record removed successfully', status: :ok
     else
       render json: 'An error has occurred while trying to remove the data'
