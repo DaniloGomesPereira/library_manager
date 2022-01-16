@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class PublishersController < ApplicationController
+class V1::PublishersController < ApplicationController
   def index
     render json: Publisher.all
   end

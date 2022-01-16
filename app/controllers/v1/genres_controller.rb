@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class GenresController < ApplicationController
+class V1::GenresController < ApplicationController
   before_action :set_genre, only: %i[update destroy show]
 
   def index

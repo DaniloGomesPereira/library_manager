@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MagazinesController < ApplicationController
+class V1::MagazinesController < ApplicationController
   before_action :set_magazine, only: %i[update destroy show]
 
   def index

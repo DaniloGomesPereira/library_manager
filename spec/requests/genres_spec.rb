@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Genre', type: :request do
   describe '#index' do
-    subject(:index_genres) { get '/genres' }
+    subject(:index_genres) { get '/v1/genres' }
 
     it { is_expected.to eq(200) }
   end
 
   describe '#show' do
-    subject(:show_genres) { get "/genres/#{genre_id}" }
+    subject(:show_genres) { get "/v1/genres/#{genre_id}" }
 
     context 'when Genre exits' do
       let(:genre_id) { create(:genre).id }
@@ -28,7 +28,7 @@ RSpec.describe 'Genre', type: :request do
   end
 
   describe '#create' do
-    subject(:post_genres) { post '/genres', params: params.as_json }
+    subject(:post_genres) { post '/v1/genres', params: params.as_json }
 
     let(:params) { { genre: { literary_genres: 'Romance' } } }
 
@@ -48,7 +48,7 @@ RSpec.describe 'Genre', type: :request do
   end
 
   describe '#update' do
-    subject(:put_genres) { put "/genres/#{genre.id}", params: params.as_json }
+    subject(:put_genres) { put "/v1/genres/#{genre.id}", params: params.as_json }
 
     let!(:genre) { create(:genre) }
 
@@ -70,7 +70,7 @@ RSpec.describe 'Genre', type: :request do
   end
 
   describe '#destroy' do
-    subject(:delete_genres) { delete "/genres/#{genre_id}" }
+    subject(:delete_genres) { delete "/v1/genres/#{genre_id}" }
 
     let!(:genre_id) { create(:genre).id }
 

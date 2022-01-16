@@ -3,14 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe 'Authors', type: :request do
+  include_context 'api request authentication helper methods'
+
+  let(:user) { build_stubbed(:user) }
+
+  before { sign_in(user) }
+
   describe '#index' do
-    subject(:index_authors) { get '/authors' }
+    subject(:index_authors) { get '/v1/authors' }
 
     it { is_expected.to eq(200) }
   end
 
   describe '#show' do
-    subject(:show_authors) { get "/authors/#{author_id}" }
+    subject(:show_authors) { get "/v1/authors/#{author_id}" }
 
     context 'when author exists' do
       let(:author_id) { create(:author).id }
@@ -28,7 +34,7 @@ RSpec.describe 'Authors', type: :request do
   end
 
   describe '#create' do
-    subject(:post_authors) { post '/authors', params: params.as_json }
+    subject(:post_authors) { post '/v1/authors', params: params.as_json }
 
     let(:params) do
       {
@@ -64,7 +70,7 @@ RSpec.describe 'Authors', type: :request do
   end
 
   describe '#update' do
-    subject(:put_authors) { put "/authors/#{author.id}", params: params.as_json }
+    subject(:put_authors) { put "/v1/authors/#{author.id}", params: params.as_json }
 
     let!(:author) { create(:author) }
 
@@ -86,7 +92,7 @@ RSpec.describe 'Authors', type: :request do
   end
 
   describe '#destroy' do
-    subject(:delete_authors) { delete "/authors/#{author_id}" }
+    subject(:delete_authors) { delete "/v1/authors/#{author_id}" }
 
     let!(:author_id) { create(:author).id }
 

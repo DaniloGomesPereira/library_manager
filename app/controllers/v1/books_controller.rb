@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BooksController < ApplicationController
+class V1::BooksController < ApplicationController
   before_action :set_book, only: %i[update destroy show]
 
   def index

@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Magazines', type: :request do
   describe '#index' do
-    subject(:index_magazines) { get '/magazines' }
+    subject(:index_magazines) { get '/v1/magazines' }
 
     it { is_expected.to eq(200) }
   end
 
   describe '#show' do
-    subject(:show_magazines) { get "/magazines/#{magazine_id}" }
+    subject(:show_magazines) { get "/v1/magazines/#{magazine_id}" }
 
     context 'when magazine exist' do
       let(:magazine_id) { create(:magazine).id }
@@ -28,7 +28,7 @@ RSpec.describe 'Magazines', type: :request do
   end
 
   describe '#create' do
-    subject(:post_magazines) { post '/magazines', params: params.as_json }
+    subject(:post_magazines) { post '/v1/magazines', params: params.as_json }
 
     let(:publisher) { create(:publisher) }
     let(:genre) { create(:genre) }
@@ -51,7 +51,7 @@ RSpec.describe 'Magazines', type: :request do
   end
 
   describe '#update' do
-    subject(:put_magazines) { put "/magazines/#{magazine.id}", params: params.as_json }
+    subject(:put_magazines) { put "/v1/magazines/#{magazine.id}", params: params.as_json }
 
     let!(:magazine) { create(:magazine) }
 
@@ -73,7 +73,7 @@ RSpec.describe 'Magazines', type: :request do
   end
 
   describe '#destroy' do
-    subject(:delete_magazines) { delete "/magazines/#{magazine_id}" }
+    subject(:delete_magazines) { delete "/v1/magazines/#{magazine_id}" }
 
     let!(:magazine_id) { create(:magazine).id }
 

@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Books', type: :request do
   describe '#index' do
-    subject(:index_books) { get '/books' }
+    subject(:index_books) { get '/v1/books' }
 
     it { is_expected.to eq(200) }
   end
 
   describe '#show' do
-    subject(:show_books) { get "/books/#{book_id}" }
+    subject(:show_books) { get "/v1/books/#{book_id}" }
 
     context 'when book exist' do
       let(:book_id) { create(:book).id }
@@ -28,7 +28,7 @@ RSpec.describe 'Books', type: :request do
   end
 
   describe '#create' do
-    subject(:post_books) { post '/books', params: params.as_json }
+    subject(:post_books) { post '/v1/books', params: params.as_json }
 
     let(:publisher) { create(:publisher) }
     let(:author) { create(:author) }
@@ -58,7 +58,7 @@ RSpec.describe 'Books', type: :request do
   end
 
   describe '#update' do
-    subject(:put_books) { put "/books/#{book.id}", params: params.as_json }
+    subject(:put_books) { put "/v1/books/#{book.id}", params: params.as_json }
 
     let!(:book) { create(:book) }
 
@@ -80,7 +80,7 @@ RSpec.describe 'Books', type: :request do
   end
 
   describe '#destroy' do
-    subject(:delete_books) { delete "/books/#{book_id}" }
+    subject(:delete_books) { delete "/v1/books/#{book_id}" }
 
     let!(:book_id) { create(:book).id }
 

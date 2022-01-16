@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Publishers', type: :request do
   describe '#index' do
-    subject(:index_publisher) { get '/publishers' }
+    subject(:index_publisher) { get '/v1/publishers' }
 
     it { is_expected.to eq(200) }
   end
 
   describe '#show' do
-    subject(:show_publishers) { get "/publishers/#{publisher_id}" }
+    subject(:show_publishers) { get "/v1/publishers/#{publisher_id}" }
 
     context 'when Publisher exist' do
       let!(:publisher_id) { create(:publisher).id }
@@ -28,7 +28,7 @@ RSpec.describe 'Publishers', type: :request do
   end
 
   describe '#create' do
-    subject(:post_publishers) { post '/publishers', params: params.as_json }
+    subject(:post_publishers) { post '/v1/publishers', params: params.as_json }
 
     let(:params) do
       {
@@ -64,7 +64,7 @@ RSpec.describe 'Publishers', type: :request do
   end
 
   describe '#update' do
-    subject(:put_publishers) { put "/publishers/#{publisher.id}", params: params.as_json }
+    subject(:put_publishers) { put "/v1/publishers/#{publisher.id}", params: params.as_json }
 
     let!(:publisher) { create(:publisher) }
 
@@ -86,7 +86,7 @@ RSpec.describe 'Publishers', type: :request do
   end
 
   describe '#destroy' do
-    subject(:delete_publishers) { delete "/publishers/#{publisher_id}" }
+    subject(:delete_publishers) { delete "/v1/publishers/#{publisher_id}" }
 
     context 'with valid arguments' do
       let!(:publisher_id) { create(:publisher).id }
